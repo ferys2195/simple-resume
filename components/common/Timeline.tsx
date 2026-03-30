@@ -33,12 +33,12 @@ function TimelineHeader({
   endDate?: Date | string
 }) {
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col justify-between lg:flex-row">
       <div>
         <div className="text-lg font-semibold">{title}</div>
         <div className="font-medium text-primary">{company}</div>
       </div>
-      <div>
+      <div className="w-fit">
         <div className="rounded bg-muted px-2 py-1 text-sm font-medium text-primary">
           {formateDate(startDate)} -{" "}
           {(endDate && formateDate(endDate)) || "Sekarang"}

@@ -7,18 +7,18 @@ export default function HeaderSection() {
   return (
     <Card className="shadow ring-0">
       <CardContent>
-        <div className="flex items-center justify-between p-4">
-          <div className="flex-1/4">
+        <div className="flex flex-col items-center gap-2.5 p-4 lg:flex-row lg:justify-between">
+          <div className="lg:flex-1/4">
             <div className="flex size-40 items-center justify-center rounded-full bg-primary/25 ring-4 ring-accent">
               <User2Icon className="size-18 text-primary" />
             </div>
           </div>
-          <div className="flex-3/4 space-y-2">
-            <h2 className="text-4xl font-bold uppercase">Fery Irawan</h2>
-            <p className="text-lg text-primary">
-              Senior Web Developer (Backend Spesialist)
+          <div className="space-y-2 text-center lg:flex-3/4 lg:text-left">
+            <h2 className="mb-0 text-4xl font-bold uppercase">Fery Irawan</h2>
+            <p className="mb-0 border-b text-[16px] text-primary lg:border-0 lg:text-lg">
+              Frontend Web Developer (Backend Spesialist)
             </p>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="mt-2 grid gap-2.5 lg:grid-cols-2">
               <TextInfo title="ferys2195@gmail.com" icon={Mail} />
               <TextInfo title="+62 812 3456 7890" icon={Phone} />
               <TextInfo title="Kalimantan Tengah, Indonesia" icon={MapPin} />

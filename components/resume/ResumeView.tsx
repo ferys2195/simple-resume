@@ -16,7 +16,7 @@ import SkillSection from "./sections/SkillSection"
 
 export default function ResumeView() {
   return (
-    <div className="mx-auto w-full space-y-8 py-4 lg:max-w-1/2">
+    <div className="mx-auto w-full space-y-8 p-4 lg:max-w-1/2">
       <HeaderSection />
       <Section title="Professional Profile" icon={User2Icon}>
         <p className="leading-relaxed">
