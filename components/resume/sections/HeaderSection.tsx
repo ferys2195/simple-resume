@@ -11,7 +11,7 @@ export default function HeaderSection({ data }: { data: Profile }) {
           <div className="lg:flex-1/4">
             <Avatar className="flex size-40 items-center justify-center rounded-full bg-primary/25 ring-4 ring-accent">
               {data.avatarUrl ? (
-                <AvatarImage src={data.avatarUrl} />
+                <AvatarImage src={data.avatarUrl} alt="Profile Image" />
               ) : (
                 <AvatarFallback>FI</AvatarFallback>
               )}
