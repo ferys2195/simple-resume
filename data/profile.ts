@@ -8,7 +8,7 @@ export const profile: Profile = {
     "Pengembang Web dengan pengalaman lebih dari 6 tahun yang berfokus pada pengembangan backend menggunakan ekosistem PHP dan Laravel. Memiliki rekam jejak yang kuat dalam membangun sistem informasi birokrasi, administrasi pemerintahan, dan layanan publik yang skalabel serta aman. Berpengalaman dalam mengelola seluruh siklus hidup pengembangan perangkat lunak (SDLC), mulai dari perancangan database hingga deployment server.",
   avatarUrl:
     "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=BlazerShirt&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light",
-  link: [
+  contacts: [
     {
       icon: Mail,
       label: "ferys2195@gmail.com",
@@ -22,6 +22,7 @@ export const profile: Profile = {
     {
       icon: MapPin,
       label: "Kalimantan Tengah, Indonesia",
+      url: "https://maps.app.goo.gl/ynHcdSgANF8db6Bg9",
     },
   ],
 }

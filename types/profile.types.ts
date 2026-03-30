@@ -5,13 +5,13 @@ type Profile = {
   about: string
   title: string
   avatarUrl?: string
-  link: Link[]
+  contacts: Contact[]
 }
 
-type Link = {
+type Contact = {
   icon: LucideIcon
   label: string
   url?: string
 }
 
-export type { Profile, Link }
+export type { Profile, Contact }

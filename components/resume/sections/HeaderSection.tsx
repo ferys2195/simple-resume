@@ -1,7 +1,7 @@
 import { Card, CardContent } from "../../ui/card"
 import TextInfo from "../../common/TextInfo"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Link, Profile } from "@/types/profile.types"
+import { Contact, Profile } from "@/types/profile.types"
 
 export default function HeaderSection({ data }: { data: Profile }) {
   return (
@@ -23,12 +23,20 @@ export default function HeaderSection({ data }: { data: Profile }) {
               {data.title}
             </p>
             <div className="mt-2 grid gap-2.5 lg:grid-cols-2">
-              {data.link.map((link: Link) => (
-                <TextInfo
-                  key={link.label}
-                  icon={link.icon}
-                  title={link.label}
-                />
+              {data.contacts.map((contact: Contact, index: number) => (
+                <div key={index}>
+                  {contact.url ? (
+                    <a
+                      href={contact.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <TextInfo icon={contact.icon} title={contact.label} />
+                    </a>
+                  ) : (
+                    <TextInfo icon={contact.icon} title={contact.label} />
+                  )}
+                </div>
               ))}
             </div>
           </div>
