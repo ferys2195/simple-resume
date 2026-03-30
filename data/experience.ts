@@ -2,26 +2,29 @@ import { Experience } from "@/types/experience.types"
 
 const experiences: Experience[] = [
   {
-    title: "Software Engineer",
-    company: "Instansi Pemerintahan (Disdukcapil / MPP)",
-    period: "2023 - Sekarang",
+    title: "Software Engineer (Contract/Project Based)",
+    company: "Disdukcapil Provinsi Kalimantan Tengah",
+    period: {
+      startDate: new Date(2025, 8), // January 2020
+      endDate: new Date(2025, 10), // December 2023
+    },
     description:
-      "Sebagai Software Engineer di instansi pemerintahan, saya bertanggung jawab untuk mengembangkan dan memelihara aplikasi yang digunakan untuk layanan administrasi kependudukan. Saya bekerja dengan tim untuk merancang solusi teknologi yang efisien dan aman, serta memastikan bahwa aplikasi berjalan dengan baik dan memenuhi kebutuhan pengguna.",
+      "Build a web-based public information service platform to enhance government transparency and public access to information. The platform provides a user-friendly interface for citizens to access various public services and information related to civil registration and population data. The project involves developing backend features for content management, information dissemination, and user engagement, ensuring a seamless experience for both administrators and end-users.",
     responsibilities: [
-      "Mengembangkan aplikasi untuk layanan administrasi kependudukan.",
-      "Memastikan keamanan dan kinerja aplikasi.",
-      "Mengelola siklus hidup pengembangan perangkat lunak (SDLC).",
+      "Developed public information service platform for government transparency",
+      "Implemented backend features for content and information management",
     ],
   },
   {
-    title: "Freelance Software Developer",
-    company: "Proyek Pribadi",
-    period: "2020 - 2023",
-    description:
-      "Sebagai seorang freelance software developer, saya telah bekerja pada berbagai proyek yang melibatkan pengembangan aplikasi web dan mobile. Saya berkolaborasi dengan klien untuk memahami kebutuhan mereka dan memberikan solusi teknologi yang sesuai. Proyek-proyek ini mencakup pembuatan aplikasi e-commerce, sistem manajemen konten, dan aplikasi mobile untuk berbagai platform.",
+    title: "Software Engineer (Contract/Project Based)",
+    company: "SDIT Imam Syafii Sampit",
+    period: {
+      startDate: new Date(2025, 2), // January 2020
+      endDate: new Date(2025, 6), // December 2023
+    },
     responsibilities: [
-      "Mengembangkan aplikasi web dan mobile untuk berbagai klien.",
-      "Mengelola siklus hidup pengembangan perangkat lunak (SDLC).",
+      "Developed school management system to manage student placement and academic administration",
+      "Designed relational database structure for academic data management",
     ],
   },
 ]

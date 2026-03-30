@@ -1,9 +1,19 @@
 type Experience = {
   title: string
   company: string
-  period: string
-  description: string
+  period: Period
+  description?: string
   responsibilities: string[]
+  techStack?: TechStack[]
 }
 
-export type { Experience }
+type Period = {
+  startDate: Date | string
+  endDate: Date | string
+}
+
+type TechStack = {
+  name: string
+}
+
+export type { Experience, Period, TechStack }

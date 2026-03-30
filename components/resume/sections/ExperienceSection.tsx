@@ -20,14 +20,14 @@ export default function ExperienceSection({ data }: ExperienceSectionProps) {
           <TimelineHeader
             company={experience.company}
             title={experience.title}
-            startDate={new Date(experience.period.split(" - ")[0])}
+            startDate={new Date(experience.period.startDate)}
             endDate={
-              experience.period.split(" - ")[1] === "Sekarang"
+              experience.period.endDate === "Sekarang"
                 ? "Sekarang"
-                : new Date(experience.period.split(" - ")[1])
+                : new Date(experience.period.endDate)
             }
           />
-          <TimelineContent title={experience.description}>
+          <TimelineContent title={experience?.description ?? ""}>
             <TimelineList className="mb-6">
               {experience.responsibilities.map(
                 (responsibility: string, idx: number) => (
