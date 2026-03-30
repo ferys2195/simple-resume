@@ -13,21 +13,14 @@ import { Timeline, TimelineHeader } from "../common/Timeline"
 import ExperienceSection from "./sections/ExperienceSection"
 import skill from "@/data/skills"
 import SkillSection from "./sections/SkillSection"
+import { profile } from "@/data/profile"
 
 export default function ResumeView() {
   return (
     <div className="mx-auto w-full space-y-8 p-4 lg:max-w-1/2">
-      <HeaderSection />
+      <HeaderSection data={profile} />
       <Section title="Professional Profile" icon={User2Icon}>
-        <p className="leading-relaxed">
-          Pengembang Web dengan pengalaman lebih dari 6 tahun yang berfokus pada
-          pengembangan backend menggunakan ekosistem PHP dan Laravel. Memiliki
-          rekam jejak yang kuat dalam membangun sistem informasi birokrasi,
-          administrasi pemerintahan, dan layanan publik yang skalabel serta
-          aman. Berpengalaman dalam mengelola seluruh siklus hidup pengembangan
-          perangkat lunak (SDLC), mulai dari perancangan database hingga
-          deployment server.
-        </p>
+        <p className="leading-relaxed">{profile.about}</p>
       </Section>
       <Section title="Experience" icon={BriefcaseBusiness}>
         <ExperienceSection data={experiences} />
