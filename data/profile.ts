@@ -5,7 +5,7 @@ export const profile: Profile = {
   name: "Fery Irawan",
   title: "Frontend Web Developer (Backend Spesialist)",
   about:
-    "Pengembang Web dengan pengalaman lebih dari 6 tahun yang berfokus pada pengembangan backend menggunakan ekosistem PHP dan Laravel. Memiliki rekam jejak yang kuat dalam membangun sistem informasi birokrasi, administrasi pemerintahan, dan layanan publik yang skalabel serta aman. Berpengalaman dalam mengelola seluruh siklus hidup pengembangan perangkat lunak (SDLC), mulai dari perancangan database hingga deployment server.",
+    "PHP / Laravel Developer with 6+ years of experience developing web applications and REST APIs for government institutions and organizations. Experienced in building scalable backend systems using Laravel and MySQL, with strong focus on administrative platforms and database-driven applications.",
   avatarUrl:
     "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=BlazerShirt&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light",
   contacts: [
@@ -16,8 +16,8 @@ export const profile: Profile = {
     },
     {
       icon: Phone,
-      label: "+62 812 3456 7890",
-      url: "tel:+6281234567890",
+      label: "+62 822 3406 8387",
+      url: "https://wa.me/6282234068387",
     },
     {
       icon: MapPin,
