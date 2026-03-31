@@ -2,8 +2,10 @@ import { Card, CardContent } from "../../ui/card"
 import TextInfo from "../../common/TextInfo"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Contact, Profile } from "@/types/profile.types"
+import { useInitials } from "@/hooks/useInitials"
 
 export default function HeaderSection({ data }: { data: Profile }) {
+  const { getInitialsFromName } = useInitials()
   return (
     <Card className="shadow ring-0">
       <CardContent>
@@ -13,7 +15,9 @@ export default function HeaderSection({ data }: { data: Profile }) {
               {data.avatarUrl ? (
                 <AvatarImage src={data.avatarUrl} alt="Profile Image" />
               ) : (
-                <AvatarFallback>FI</AvatarFallback>
+                <AvatarFallback className="text-3xl font-bold uppercase">
+                  {getInitialsFromName(data.name)}
+                </AvatarFallback>
               )}
             </Avatar>
           </div>
