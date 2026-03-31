@@ -1,11 +1,14 @@
 import { Profile } from "@/types/profile.types"
+import { differenceInYears } from "date-fns"
 import { Mail, MapPin, Phone } from "lucide-react"
+
+const startExperienceDate = new Date(2022, 0)
+const yearsOfExperience = differenceInYears(new Date(), startExperienceDate)
 
 export const profile: Profile = {
   name: "Fery Irawan",
-  title: "Frontend Web Developer (Backend Spesialist)",
-  about:
-    "PHP / Laravel Developer with 6+ years of experience developing web applications and REST APIs for government institutions and organizations. Experienced in building scalable backend systems using Laravel and MySQL, with strong focus on administrative platforms and database-driven applications.",
+  title: "Full-Stack Laravel & React Developer",
+  about: `${yearsOfExperience}+ years of experience in building end-to-end web applications using Laravel and React, with practical deployment experience on VPS/Linux environments.`,
   avatarUrl:
     "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=BlazerShirt&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light",
   contacts: [
