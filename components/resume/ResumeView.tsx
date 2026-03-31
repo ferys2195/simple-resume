@@ -19,7 +19,7 @@ export default function ResumeView() {
   return (
     <div className="mx-auto w-full space-y-8 p-4 lg:max-w-1/2">
       <HeaderSection data={profile} />
-      <Section title="Professional Profile" icon={User2Icon}>
+      <Section title="About Me" icon={User2Icon}>
         <p className="leading-relaxed">{profile.about}</p>
       </Section>
       <Section title="Experience" icon={BriefcaseBusiness}>
