@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
+import Header from "@/components/layout/Header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -29,6 +30,9 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
+          <header className="sticky top-0 z-10 mx-auto w-full bg-background p-4 lg:max-w-1/2">
+            <Header />
+          </header>
           <main>{children}</main>
         </ThemeProvider>
       </body>
