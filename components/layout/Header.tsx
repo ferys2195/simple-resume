@@ -3,6 +3,7 @@ import React from "react"
 import { Button } from "../ui/button"
 import { FileDown } from "lucide-react"
 import { ModeToggle } from "../common/ModeToggle"
+import ButtonToggleLanguage from "../common/ButtonToggleLanguage"
 
 export default function Header() {
   return (
@@ -29,9 +30,7 @@ export default function Header() {
           </li>
 
           <li>
-            <Button size={"icon"} variant={"outline"}>
-              EN
-            </Button>
+            <ButtonToggleLanguage />
           </li>
           <li>
             <ModeToggle />
