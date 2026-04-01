@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, Inter } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -30,10 +30,10 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <header className="sticky top-0 z-10 mx-auto w-full bg-background p-4 lg:max-w-1/2">
+          <header className="sticky top-0 z-10 mx-auto w-full bg-background p-4 xl:max-w-3/5 2xl:max-w-1/2">
             <Header />
           </header>
-          <main>{children}</main>
+          <main className="mx-auto xl:max-w-3/5 2xl:max-w-1/2">{children}</main>
         </ThemeProvider>
       </body>
     </html>

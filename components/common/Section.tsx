@@ -18,7 +18,7 @@ export default function Section({
 }: Props) {
   return (
     <section
-      className="scroll-mt-24 space-y-2 rounded-xl bg-card p-10 shadow"
+      className="scroll-mt-24 space-y-2 rounded-xl bg-card p-6 shadow lg:p-10"
       {...rest}
     >
       <div className="flex items-center gap-2.5">
