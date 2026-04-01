@@ -36,7 +36,7 @@ function TimelineHeader({
     <div className="flex flex-col justify-between lg:flex-row">
       <div>
         <div className="text-lg font-semibold">{title}</div>
-        <div className="font-medium text-primary">{company}</div>
+        <div className="text-[16px] font-medium text-primary">{company}</div>
       </div>
       <div className="w-fit">
         <div className="rounded bg-muted px-2 py-1 text-sm font-medium text-primary">
@@ -59,7 +59,10 @@ function TimelineContent({
 }) {
   return (
     <div
-      className={cn("mt-4 block space-y-2.5 text-muted-foreground", className)}
+      className={cn(
+        "mt-4 block space-y-2.5 text-secondary-foreground",
+        className
+      )}
     >
       {title && <div>{title}</div>}
       {children}
