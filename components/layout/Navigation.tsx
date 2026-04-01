@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { ModeToggle } from "../common/ModeToggle"
 import { Button } from "../ui/button"
 import { FileDown, Menu } from "lucide-react"
@@ -13,21 +13,37 @@ import {
 import { Separator } from "../ui/separator"
 
 export default function Navigation() {
+  const [open, setOpen] = useState(false)
+
+  const handleClose = () => setOpen(false)
+
+  const links = [
+    {
+      title: "About",
+      href: "#about",
+    },
+    {
+      title: "Experience",
+      href: "#experience",
+    },
+    {
+      title: "Skills",
+      href: "#skills",
+    },
+    {
+      title: "Education",
+      href: "#education",
+    },
+  ]
+
   return (
     <>
       <ul className="hidden items-center gap-4 text-sm font-medium uppercase lg:flex">
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#experience">Experience</a>
-        </li>
-        <li>
-          <a href="#skills">Skills</a>
-        </li>
-        <li>
-          <a href="#education">Education</a>
-        </li>
+        {links.map((link) => (
+          <li key={link.href}>
+            <a href={link.href}>{link.title}</a>
+          </li>
+        ))}
         <li>
           <ModeToggle />
         </li>
@@ -38,38 +54,44 @@ export default function Navigation() {
           </Button>
         </li>
       </ul>
+
       <div className="flex items-center justify-end gap-2 lg:hidden">
         <ModeToggle />
-        <Sheet>
+
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button data-slot="button" size={"lg"} variant={"outline"}>
+            <Button size={"lg"} variant={"outline"}>
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent>
+
+          <SheetContent className="duration-300 ease-in-out">
             <SheetHeader className="border-b">
               <SheetTitle className="m-0 text-xl font-bold">
                 FERY IRAWAN
               </SheetTitle>
               <SheetDescription>Full Stack Laravel & React</SheetDescription>
             </SheetHeader>
-            <div className="px-6">
-              <ul className="mb-5 space-y-2.5 text-sm font-medium uppercase">
-                <li>
-                  <a href="#about">About</a>
-                </li>
-                <li>
-                  <a href="#experience">Experience</a>
-                </li>
-                <li>
-                  <a href="#skills">Skills</a>
-                </li>
-                <li>
-                  <a href="#education">Education</a>
-                </li>
+
+            <div>
+              <ul className="space-y-0.5 text-sm font-medium uppercase">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={handleClose}
+                      className="inline-block w-full px-4 py-1.5 hover:bg-accent/50"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
-              <Separator orientation="horizontal" className="my-5" />
-              <Button className="w-full" size={"lg"}>
+            </div>
+            <div className="space-y-2.5 px-4">
+              <Separator orientation="horizontal" className="mb-4" />
+
+              <Button className="w-full" size={"lg"} onClick={handleClose}>
                 <FileDown />
                 Download CV
               </Button>
