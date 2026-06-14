@@ -9,8 +9,7 @@ export const profile: Profile = {
   name: "Fery Irawan",
   title: "Full-Stack Laravel & React Developer",
   about: `${yearsOfExperience}+ years of experience in building end-to-end web applications using Laravel and React, with practical deployment experience on VPS/Linux environments.`,
-  avatarUrl:
-    "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=BlazerShirt&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light",
+  avatarUrl: "/avatar.svg",
   contacts: [
     {
       icon: Mail,

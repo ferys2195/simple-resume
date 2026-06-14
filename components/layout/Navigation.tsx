@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ModeToggle } from "../common/ModeToggle"
 import { Button } from "../ui/button"
-import { FileDown, Menu } from "lucide-react"
+import { FileDown, Menu, FileText, FileImage } from "lucide-react"
 import {
   Sheet,
   SheetContent,
@@ -11,6 +11,13 @@ import {
   SheetTrigger,
 } from "../ui/sheet"
 import { Separator } from "../ui/separator"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu"
+import { exportToPDF, exportToPNG } from "@/lib/export"
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
@@ -48,10 +55,24 @@ export default function Navigation() {
           <ModeToggle />
         </li>
         <li>
-          <Button size={"lg"}>
-            <FileDown />
-            Download CV
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size={"lg"}>
+                <FileDown />
+                Download CV
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={exportToPDF} className="cursor-pointer">
+                <FileText className="mr-2 h-4 w-4" />
+                Download PDF
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={exportToPNG} className="cursor-pointer">
+                <FileImage className="mr-2 h-4 w-4" />
+                Download PNG
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </li>
       </ul>
 
@@ -91,10 +112,24 @@ export default function Navigation() {
             <div className="space-y-2.5 px-4">
               <Separator orientation="horizontal" className="mb-4" />
 
-              <Button className="w-full" size={"lg"} onClick={handleClose}>
-                <FileDown />
-                Download CV
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="w-full" size={"lg"}>
+                    <FileDown />
+                    Download CV
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width]">
+                  <DropdownMenuItem onClick={() => { exportToPDF(); handleClose(); }} className="cursor-pointer">
+                    <FileText className="mr-2 h-4 w-4" />
+                    Download PDF
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => { exportToPNG(); handleClose(); }} className="cursor-pointer">
+                    <FileImage className="mr-2 h-4 w-4" />
+                    Download PNG
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </SheetContent>
         </Sheet>
