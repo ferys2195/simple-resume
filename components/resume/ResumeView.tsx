@@ -17,7 +17,7 @@ import { profile } from "@/data/profile"
 
 export default function ResumeView() {
   return (
-    <div className="w-full space-y-8 p-4">
+    <div className="w-full space-y-6 p-4">
       <HeaderSection data={profile} />
       <Section title="About Me" icon={User2Icon} id="about">
         <p className="leading-relaxed">{profile.about}</p>

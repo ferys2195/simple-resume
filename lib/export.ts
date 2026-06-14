@@ -1,5 +1,4 @@
 import { toPng } from "html-to-image"
-import jsPDF from "jspdf"
 
 const getResumeElement = () => {
   const element = document.getElementById("resume-export")
@@ -23,6 +22,9 @@ const captureElement = async (element: HTMLElement) => {
   const width = element.offsetWidth
   const height = element.scrollHeight
 
+  // Tandai mode export agar CSS menghilangkan shadow/ring pada clone
+  element.setAttribute("data-exporting", "true")
+
   const dataUrl = await toPng(element, {
     quality: 1,
     pixelRatio: 2,
@@ -40,13 +42,24 @@ const captureElement = async (element: HTMLElement) => {
     },
   })
 
+  // Hapus penanda export dari DOM asli
+  element.removeAttribute("data-exporting")
+
   return { dataUrl, width, height }
 }
 
 export const exportToPNG = async () => {
   try {
     const element = getResumeElement()
+    const body = document.body
+
+    // Add print-mode class to remove shadows and rings during capture
+    body.classList.add("print-mode")
+
     const { dataUrl } = await captureElement(element)
+
+    // Remove print-mode class after capture
+    body.classList.remove("print-mode")
 
     const link = document.createElement("a")
     link.href = dataUrl
@@ -54,33 +67,18 @@ export const exportToPNG = async () => {
     link.click()
   } catch (error) {
     console.error("Failed to export PNG:", error)
+    // Ensure print-mode is removed even if error occurs
+    document.body.classList.remove("print-mode")
   }
 }
 
-export const exportToPDF = async () => {
-  try {
-    const element = getResumeElement()
-    const { dataUrl, width, height } = await captureElement(element)
-
-    const pdf = new jsPDF("p", "mm", "a4")
-    const pdfWidth = pdf.internal.pageSize.getWidth()
-    const pdfHeight = (height * pdfWidth) / width
-
-    // Jika konten lebih panjang dari 1 halaman A4, tambahkan halaman baru
-    const pageHeight = pdf.internal.pageSize.getHeight()
-    if (pdfHeight <= pageHeight) {
-      pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight)
-    } else {
-      const totalPages = Math.ceil(pdfHeight / pageHeight)
-      for (let i = 0; i < totalPages; i++) {
-        if (i > 0) pdf.addPage()
-        const yOffset = -(i * pageHeight)
-        pdf.addImage(dataUrl, "PNG", 0, yOffset, pdfWidth, pdfHeight)
-      }
-    }
-
-    pdf.save("resume.pdf")
-  } catch (error) {
-    console.error("Failed to export PDF:", error)
-  }
+export const exportToPDF = () => {
+  // Tambahkan class ke body untuk mengaktifkan tampilan print resume
+  document.body.classList.add("printing-pdf")
+  // Gunakan browser native print
+  window.print()
+  // Hapus class setelah dialog print ditutup
+  setTimeout(() => {
+    document.body.classList.remove("printing-pdf")
+  }, 1000)
 }

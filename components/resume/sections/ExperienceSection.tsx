@@ -14,7 +14,7 @@ interface ExperienceSectionProps {
 }
 export default function ExperienceSection({ data }: ExperienceSectionProps) {
   return (
-    <div className="mt-6">
+    <div>
       {data.map((experience: Experience, index: number) => (
         <Timeline key={index}>
           <TimelineHeader
