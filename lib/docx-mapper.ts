@@ -17,7 +17,7 @@ type TemplateData = {
     posisi: string
     perusahaan: string
     periode: string
-    deskripsi: string
+    deskripsi: string | null
     tanggungjawab: string[]
   }[]
   skills: {
@@ -58,7 +58,7 @@ export function buildTemplateData(): TemplateData {
       posisi: exp.title,
       perusahaan: exp.company,
       periode: formatPeriode(exp.period.startDate, exp.period.endDate),
-      deskripsi: exp.description ?? "",
+      deskripsi: exp.description ?? null,
       tanggungjawab: exp.responsibilities,
     })),
 

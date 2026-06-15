@@ -55,37 +55,10 @@ export default function Navigation() {
           <ModeToggle />
         </li>
         <li>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button size={"lg"}>
-                <FileDown />
-                Download CV
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem
-                onClick={downloadDocx}
-                className="cursor-pointer"
-              >
-                <FileCode className="mr-2 h-4 w-4" />
-                Download DOCX
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={exportToPDF}
-                className="cursor-pointer"
-              >
-                <FileText className="mr-2 h-4 w-4" />
-                Download PDF
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={exportToPNG}
-                className="cursor-pointer"
-              >
-                <FileImage className="mr-2 h-4 w-4" />
-                Download PNG
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button size={"lg"} onClick={downloadDocx}>
+            <FileDown />
+            Download CV
+          </Button>
         </li>
       </ul>
 
