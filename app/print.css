@@ -1,0 +1,227 @@
+/* ============================================================
+   PRINT RESUME STYLES — digunakan saat export/download PDF
+   File terpisah agar mudah dikustomisasi tanpa mengganggu
+   styling utama website.
+   ============================================================ */
+
+/* --- Sembunyikan print-resume di mode normal (hanya tampil saat print) --- */
+.print-resume {
+  display: none;
+  padding: 1.5rem 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+/* --- Tampilkan print-resume saat class printing-pdf aktif (via JS) --- */
+body.printing-pdf .print-resume {
+  display: block !important;
+}
+
+/* --- Sembunyikan elemen website saat mode print aktif --- */
+body.printing-pdf #resume-export,
+body.printing-pdf nav,
+body.printing-pdf header,
+body.printing-pdf .sticky {
+  display: none !important;
+}
+
+/* ============================================================
+   MEDIA PRINT — aturan yang aktif saat dialog print browser
+   ============================================================ */
+@media print {
+  /* Margin halaman */
+  @page {
+    margin: 0.3in 0.4in;
+  }
+
+  /* Reset body untuk print */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Pastikan semua elemen mempertahankan warna */
+  body * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Sembunyikan navigasi, header, dan konten website utama */
+  nav,
+  header,
+  .sticky,
+  #resume-export {
+    display: none !important;
+  }
+
+  /* Tampilkan print-resume */
+  .print-resume {
+    display: block !important;
+    padding: 0 1cm !important;
+  }
+}
+
+/* ============================================================
+   HEADER — Nama, Title, dan Kontak (di-tengah)
+   ============================================================ */
+
+/* Container header — rata tengah dengan garis bawah tebal */
+.print-resume .print-header {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #000;
+}
+
+/* Nama — uppercase, bold, ukuran besar */
+.print-resume .print-name {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.1rem 0;
+}
+
+/* Title/jabatan — ukuran lebih kecil, warna abu */
+.print-resume .print-title {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 0.3rem 0;
+  font-weight: 500;
+}
+
+/* Kontak — ditampilkan flex, rata tengah, wrap jika perlu */
+.print-resume .print-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.25rem;
+  font-size: 10.5px;
+  color: #333;
+}
+
+/* ============================================================
+   SECTION — Setiap blok konten (Summary, Skills, Experience, Education)
+   ============================================================ */
+
+/* Jarak antar section */
+.print-resume .print-section {
+  margin-bottom: 0.6rem;
+}
+
+/* Judul section — uppercase, bold, dengan garis bawah abu */
+.print-resume .print-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #999;
+}
+
+/* Teks paragraf biasa (contoh: Professional Summary) */
+.print-resume .print-text {
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* ============================================================
+   SKILLS — Technical Skills
+   ============================================================ */
+
+/* Container skills — column layout */
+.print-resume .print-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+/* Setiap baris skill group (contoh: "Backend & Frameworks : PHP, Laravel...") */
+.print-resume .print-skills-group {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Label kategori skill — bold (contoh: "Backend & Frameworks :") */
+.print-resume .print-skills-label {
+  font-weight: 600;
+  color: #000;
+}
+
+/* Daftar skill — warna abu */
+.print-resume .print-skills-list {
+  color: #444;
+}
+
+/* ============================================================
+   EXPERIENCE — Riwayat Pekerjaan
+   ============================================================ */
+
+/* Setiap item experience */
+.print-resume .print-experience-item {
+  margin-bottom: 0.4rem;
+}
+
+/* Header experience: title (kiri) + tanggal (kanan) */
+.print-resume .print-experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+/* Nama posisi/jabatan */
+.print-resume .print-experience-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Nama perusahaan/klien */
+.print-resume .print-experience-company {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 0.05rem;
+}
+
+/* Periode/tanggal kerja — rata kanan, white-space nowrap */
+.print-resume .print-experience-date {
+  font-size: 10px;
+  color: #777;
+  white-space: nowrap;
+}
+
+/* List tanggung jawab — bullet points */
+.print-resume .print-experience-list {
+  margin: 0.1rem 0 0 0;
+  padding-left: 1.25rem;
+  font-size: 10.5px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Spacing antar list item */
+.print-resume .print-experience-list li {
+  margin-bottom: 0.05rem;
+}
+
+/* Tech stack yang digunakan (muncul jika ada description) */
+.print-resume .print-experience-techstack {
+  font-size: 10.5px;
+  color: #444;
+  margin-top: 0.1rem;
+}
+
+/* Label "Tech stack :" — bold */
+.print-resume .print-techstack-label {
+  font-weight: 600;
+  color: #000;
+}

@@ -127,3 +127,25 @@
     @apply font-sans;
   }
 }
+
+/* Export mode: hilangkan shadow dan ring/border dari card & section */
+[data-exporting] section,
+[data-exporting] [data-slot="card"] {
+  box-shadow: none !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-shadow: 0 0 #0000 !important;
+}
+
+/* PNG export mode: remove shadows and rings */
+body.print-mode section,
+body.print-mode [data-slot="card"],
+body.print-mode [class*="shadow"],
+body.print-mode [class*="ring"] {
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: none !important;
+}
+
+/* Import CSS khusus untuk print PDF — dipisah agar mudah dikustomisasi */
+@import "./print.css";
