@@ -28,13 +28,13 @@ export const profile: Profile = {
     },
     {
       icon: Globe,
-      label: "github.com/farys2195",
-      url: "https://github.com/farys2195",
+      label: "github.com/ferys2195",
+      url: "https://github.com/ferys2195",
     },
     {
       icon: Globe,
-      label: "linkedin.com/in/farys2195",
-      url: "https://linkedin.com/in/farys2195",
+      label: "linkedin.com/in/ferys2195",
+      url: "https://linkedin.com/in/ferys2195",
     },
   ],
 }
