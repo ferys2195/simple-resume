@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ModeToggle } from "../common/ModeToggle"
 import { Button } from "../ui/button"
-import { FileDown, Menu, FileText, FileImage } from "lucide-react"
+import { FileDown, Menu, FileText, FileImage, FileCode } from "lucide-react"
 import {
   Sheet,
   SheetContent,
@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu"
-import { exportToPDF, exportToPNG } from "@/lib/export"
+import { exportToPDF, exportToPNG, downloadDocx } from "@/lib/export"
 
 export default function Navigation() {
   const [open, setOpen] = useState(false)
@@ -63,11 +63,24 @@ export default function Navigation() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onClick={exportToPDF} className="cursor-pointer">
+              <DropdownMenuItem
+                onClick={downloadDocx}
+                className="cursor-pointer"
+              >
+                <FileCode className="mr-2 h-4 w-4" />
+                Download DOCX
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={exportToPDF}
+                className="cursor-pointer"
+              >
                 <FileText className="mr-2 h-4 w-4" />
                 Download PDF
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={exportToPNG} className="cursor-pointer">
+              <DropdownMenuItem
+                onClick={exportToPNG}
+                className="cursor-pointer"
+              >
                 <FileImage className="mr-2 h-4 w-4" />
                 Download PNG
               </DropdownMenuItem>
@@ -120,11 +133,33 @@ export default function Navigation() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width]">
-                  <DropdownMenuItem onClick={() => { exportToPDF(); handleClose(); }} className="cursor-pointer">
+                  <DropdownMenuItem
+                    onClick={() => {
+                      downloadDocx()
+                      handleClose()
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <FileCode className="mr-2 h-4 w-4" />
+                    Download DOCX
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => {
+                      exportToPDF()
+                      handleClose()
+                    }}
+                    className="cursor-pointer"
+                  >
                     <FileText className="mr-2 h-4 w-4" />
                     Download PDF
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => { exportToPNG(); handleClose(); }} className="cursor-pointer">
+                  <DropdownMenuItem
+                    onClick={() => {
+                      exportToPNG()
+                      handleClose()
+                    }}
+                    className="cursor-pointer"
+                  >
                     <FileImage className="mr-2 h-4 w-4" />
                     Download PNG
                   </DropdownMenuItem>
