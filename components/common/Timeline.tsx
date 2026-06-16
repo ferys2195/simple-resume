@@ -12,6 +12,15 @@ function formateDate(date: Date | string) {
   return format(date, "MMM yyyy", { locale: id })
 }
 
+function isToday(date: Date) {
+  const today = new Date()
+  return (
+    date.getFullYear() === today.getFullYear() &&
+    date.getMonth() === today.getMonth() &&
+    date.getDate() === today.getDate()
+  )
+}
+
 function Timeline({ children }: React.ComponentProps<"div">) {
   return (
     <div className="relative border-l border-l-secondary pl-6">
@@ -41,7 +50,9 @@ function TimelineHeader({
       <div className="w-fit">
         <div className="rounded bg-muted px-2 py-1 text-sm font-medium text-primary">
           {formateDate(startDate)} -{" "}
-          {(endDate && formateDate(endDate)) || "Sekarang"}
+          {endDate && !isToday(new Date(endDate))
+            ? formateDate(endDate)
+            : "Present"}
         </div>
       </div>
     </div>

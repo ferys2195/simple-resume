@@ -28,8 +28,8 @@ export const profile: Profile = {
     },
     {
       icon: Globe,
-      label: "github.com/ferys2195",
-      url: "https://github.com/ferys2195",
+      label: "feryirawan.com",
+      url: "https://feryirawan.com",
     },
     {
       icon: Globe,
