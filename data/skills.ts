@@ -5,10 +5,10 @@ const skill: Skill[] = [
     title: "Backend & Frameworks",
     skills: [
       {
-        title: "PHP",
+        title: "Laravel",
       },
       {
-        title: "Laravel",
+        title: "PHP",
       },
       {
         title: "RESTful API",
@@ -19,7 +19,10 @@ const skill: Skill[] = [
     title: "Frontend & Tooling",
     skills: [
       {
-        title: "JavaScript (ES6+)",
+        title: "NextJS",
+      },
+      {
+        title: "Tailwind CSS",
       },
       {
         title: "ReactJS",
@@ -28,10 +31,7 @@ const skill: Skill[] = [
         title: "InertiaJS",
       },
       {
-        title: "Tailwind CSS",
-      },
-      {
-        title: "NextJS",
+        title: "JavaScript (ES6+)",
       },
     ],
   },
