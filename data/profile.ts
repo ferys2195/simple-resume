@@ -2,7 +2,7 @@ import { Profile } from "@/types/profile.types"
 import { differenceInYears } from "date-fns"
 import { Mail, MapPin, Phone, Globe } from "lucide-react"
 
-const startExperienceDate = new Date(2022, 0)
+const startExperienceDate = new Date(2018, 0)
 const yearsOfExperience = differenceInYears(new Date(), startExperienceDate)
 
 export const profile: Profile = {
