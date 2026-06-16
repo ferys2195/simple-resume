@@ -51,8 +51,12 @@ export function buildTemplateData(): TemplateData {
     location:
       contacts.find((c) => c.label.toLowerCase().includes("kalimantan"))
         ?.label ?? "",
-    github: "github.com/farys2195",
-    linkedin: "linkedin.com/in/farys2195",
+    github:
+      contacts.find((c) => c.label.toLowerCase().includes("github"))?.label ??
+      "",
+    linkedin:
+      contacts.find((c) => c.label.toLowerCase().includes("linkedin"))?.label ??
+      "",
 
     pengalaman: experiences.map((exp) => ({
       posisi: exp.title,
