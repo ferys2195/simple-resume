@@ -11,7 +11,7 @@ type TemplateData = {
   email: string
   phone: string
   location: string
-  github: string
+  portfolio: string
   linkedin: string
   pengalaman: {
     posisi: string
@@ -26,6 +26,15 @@ type TemplateData = {
   }[]
 }
 
+function isToday(date: Date) {
+  const today = new Date()
+  return (
+    date.getFullYear() === today.getFullYear() &&
+    date.getMonth() === today.getMonth() &&
+    date.getDate() === today.getDate()
+  )
+}
+
 function formatPeriode(
   startDate: Date | string,
   endDate: Date | string
@@ -34,7 +43,9 @@ function formatPeriode(
   const end = new Date(endDate)
 
   const startStr = format(start, "MMM yyyy", { locale: id })
-  const endStr = format(end, "MMM yyyy", { locale: id })
+  const endStr = isToday(end)
+    ? "Present"
+    : format(end, "MMM yyyy", { locale: id })
 
   return `${startStr} - ${endStr}`
 }
@@ -51,9 +62,9 @@ export function buildTemplateData(): TemplateData {
     location:
       contacts.find((c) => c.label.toLowerCase().includes("kalimantan"))
         ?.label ?? "",
-    github:
-      contacts.find((c) => c.label.toLowerCase().includes("github"))?.label ??
-      "",
+    portfolio:
+      contacts.find((c) => c.label.toLowerCase().includes("feryirawan.com"))
+        ?.label ?? "",
     linkedin:
       contacts.find((c) => c.label.toLowerCase().includes("linkedin"))?.label ??
       "",
