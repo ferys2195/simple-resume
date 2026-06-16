@@ -24,13 +24,13 @@ export default function PrintResume() {
       {/* Header */}
       <div className="print-header">
         <h1 className="print-name">{data.name}</h1>
-        <p className="print-title">PHP / Laravel Developer</p>
+        <p className="print-title">{data.title}</p>
         <div className="print-contacts">
-          <span>Kalimantan Tengah, Indonesia</span>
-          <span>+62 822 3406 8387</span>
-          <span>ferys2195@gmail.com</span>
-          <span>github.com/farys2195</span>
-          <span>linkedin.com/in/farys2195</span>
+          <span>{data.contacts[2].label}</span>
+          <span>{data.contacts[1].label}</span>
+          <span>{data.contacts[0].label}</span>
+          <span>{data.contacts[3].label}</span>
+          <span>{data.contacts[4].label}</span>
         </div>
       </div>
 

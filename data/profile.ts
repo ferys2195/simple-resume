@@ -7,8 +7,8 @@ const yearsOfExperience = differenceInYears(new Date(), startExperienceDate)
 
 export const profile: Profile = {
   name: "Fery Irawan",
-  title: "Full-Stack Laravel & React Developer",
-  about: `${yearsOfExperience}+ years of experience as a Frontend-focused developer with strong Backend capabilities, specializing in React.js for interactive user interfaces and Laravel for RESTful API development and system integration. Experienced in building end-to-end web applications and deploying them on VPS/Linux environments.`,
+  title: "Full-Stack Developer",
+  about: `Fullstack developer with ${yearsOfExperience}+ years building end-to-end web applications — from backend APIs and database design to responsive frontends. Experienced working independently on government and institutional projects. Currently exploring AI-powered product development with focus on RAG systems and LLM integration.`,
   avatarUrl: "/avatar.svg",
   contacts: [
     {
